@@ -7,22 +7,23 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="../js/main-scripts.js"></script>
 </head>
 <body>
 <header>
 <nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand text-light" href="#">Blogs</a>
+    <a class="navbar-brand text-light" href="/">Blogs</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+          <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#">About</a>
+          <a class="nav-link text-light" href="/pages/about.php">About</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,13 +33,16 @@
             <?php 
                 if (isset($_SESSION["username"])) {
                     echo <<<html
-                    <li><a class="dropdown-item" href="#">My page</a></li>
+                    <li><a class="dropdown-item" href="/pages/my-page.php">My page</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Log Out</a></li>
+                    <li><a class="dropdown-item" href="/pages/logout.php">Log Out</a></li>
                     html;
                 } else {
                     echo <<<html
-                    <li><a class="dropdown-item" href="#">Log In</a></li>
+                    <li><a class="dropdown-item" href="/pages/login.php">Log In</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/pages/register.php">Register</a></li>
+
                     html;
                 };
             ?>           
@@ -53,3 +57,4 @@
   </div>
 </nav>
 </header>
+<main class="container">

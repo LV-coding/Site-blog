@@ -4,4 +4,13 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+.container {
+  margin-top: 5vh;
+  padding: 20px;
+}
+
+#error_equal_pass {
+  color: red;
+}
 /*# sourceMappingURL=style.css.map */
