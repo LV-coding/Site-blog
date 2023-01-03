@@ -1,9 +1,9 @@
 <?php require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
-      require($_SERVER['DOCUMENT_ROOT'].'/functions/register-check.php');  ?>
+      require($_SERVER['DOCUMENT_ROOT'].'/functions/login-check.php');  ?>
 
 
         <div class="mb-3">
-        <form  method="post" action="../functions/register-check.php" id="form_register">  
+        <form  method="post" action="../functions/login-check.php" id="form_register">  
         <label for="exampleName" class="form-label">Name</label>
         <input type="text" class="form-control" id="exampleName" aria-describedby="nameHelp" name="name" required>
         </div>
@@ -11,23 +11,19 @@
         <label for="inputPassword1" class="form-label" >Password</label>
         <input type="password" class="form-control" id="inputPassword1" name="password" required>
         </div>
-        <div class="mb-3">
-        <label for="inputPassword2" class="form-label">Confirm password</label>
-        <input type="password" class="form-control" id="inputPassword2" name="confirm_password" required>
         <p id="error_equal_pass"> 
-            <?php if (isset($_SESSION["registration_error"])) {
-                        echo $_SESSION["registration_error"];
+            <?php if (isset($_SESSION["login_error"])) {
+                        echo $_SESSION["login_error"];
                 }  ?>
         </p>
-        </div>
-        <input type="submit" class="btn btn-primary" onclick="checkEqualityPassword()" value="Register">
+        <input type="submit" class="btn btn-primary" value="Log In">
         </form>
       
 
 
 <?php 
 if (isset($_SESSION["username"])) {
-    unset($_SESSION["registration_error"]);
+    unset($_SESSION["login_error"]);
 }
 
 require($_SERVER['DOCUMENT_ROOT'].'/components/footer.php') ?>
