@@ -1,7 +1,7 @@
 <?php require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
       require($_SERVER['DOCUMENT_ROOT'].'/functions/register-check.php');  ?>
 
-
+        <h3 class="mib-3 title">Register</h3>
         <div class="mb-3">
         <form  method="post" action="../functions/register-check.php" id="form_register">  
         <label for="exampleName" class="form-label">Name</label>

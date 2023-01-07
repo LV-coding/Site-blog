@@ -1,7 +1,7 @@
 <?php require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
       require($_SERVER['DOCUMENT_ROOT'].'/functions/login-check.php');  ?>
 
-
+        <h3 class="mib-3 title">Log In</h3>
         <div class="mb-3">
         <form  method="post" action="../functions/login-check.php" id="form_register">  
         <label for="exampleName" class="form-label">Name</label>
