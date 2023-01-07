@@ -7,15 +7,15 @@ function show_user_articles():iterable {
 
         global $connect;
 
-        $query = $connect->prepare("SELECT id, title, text, datetime, author FROM blog.articles WHERE author=:user ORDER BY id DESC");
-        $query -> execute(['user'=> $_SESSION['username']]);
-        $articles = $query->fetchAll(PDO::FETCH_ASSOC);
+        $articles = $connect->query("SELECT id, title, text, datetime, author FROM blog.articles WHERE author='{$_SESSION['username']}' ORDER BY id DESC");
+        $articles = $articles->fetchAll(PDO::FETCH_ASSOC);
 
         return $articles;
 
-    } else {
-        return ["error" => "You must be log in/"];
-    }
+    } 
+    // else {
+    //     return ["error" => "You must be log in/"];
+    // }
 }
 
 
