@@ -1,4 +1,5 @@
 <?php require($_SERVER['DOCUMENT_ROOT'].'/functions/connection.php');
+      require($_SERVER['DOCUMENT_ROOT'].'/functions/form-validation.php');
 
 function show_user_articles():iterable {
     #session_start();
@@ -17,6 +18,7 @@ function show_user_articles():iterable {
     //     return ["error" => "You must be log in/"];
     // }
 }
+
 
 
 ?>
