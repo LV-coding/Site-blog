@@ -1,4 +1,6 @@
-<?php require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
+<?php require($_SERVER['DOCUMENT_ROOT'].'/functions/init/var.php'); 
+      $var['page_title'] = "Log In";
+      require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
       require($_SERVER['DOCUMENT_ROOT'].'/functions/login-check.php');  ?>
 
         <h3 class="mib-3 title">Log In</h3>
@@ -16,6 +18,11 @@
                         echo $_SESSION["login_error"];
                 }  ?>
         </p>
+        <div class="mb-3">
+            <input type="checkbox" onchange="showPassword()" id="inputCheckbox1">
+            <label for="inputCheckbox1">Show password</label>
+        </div>
+
         <input type="submit" class="btn btn-primary" value="Log In">
         </form>
       

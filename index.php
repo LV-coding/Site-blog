@@ -1,5 +1,8 @@
-<?php require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
-      require($_SERVER['DOCUMENT_ROOT'].'/functions/articles/articles-read.php');  ?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'/functions/init/var.php'); 
+      $var['page_title'] = "Blogs";
+
+      require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
+      require($_SERVER['DOCUMENT_ROOT'].'/functions/articles/articles-read.php'); ?>
 
 <h3 class="mib-3 title">Articles</h3>
 <?php 

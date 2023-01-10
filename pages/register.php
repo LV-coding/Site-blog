@@ -1,9 +1,11 @@
-<?php require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
+<?php require($_SERVER['DOCUMENT_ROOT'].'/functions/init/var.php'); 
+      $var['page_title'] = "Register";
+      require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
       require($_SERVER['DOCUMENT_ROOT'].'/functions/register-check.php');  ?>
 
         <h3 class="mib-3 title">Register</h3>
         <div class="mb-3">
-        <form  method="post" action="../functions/register-check.php" id="form_register">  
+        <form  method="post" action="../functions/register-check.php" id="form_register" onsubmit="checkEqualityPassword()">  
         <label for="exampleName" class="form-label">Name</label>
         <input type="text" class="form-control" id="exampleName" aria-describedby="nameHelp" name="name" required>
         </div>
@@ -20,7 +22,7 @@
                 }  ?>
         </p>
         </div>
-        <input type="submit" class="btn btn-primary" onclick="checkEqualityPassword()" value="Register">
+        <input type="submit" class="btn btn-primary"  value="Register">
         </form>
       
 

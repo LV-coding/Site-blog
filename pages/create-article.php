@@ -1,4 +1,6 @@
-<?php require($_SERVER['DOCUMENT_ROOT'].'/components/header.php'); 
+<?php require($_SERVER['DOCUMENT_ROOT'].'/functions/init/var.php'); 
+      $var['page_title'] = "Create new article";
+      require($_SERVER['DOCUMENT_ROOT'].'/components/header.php'); 
 
 if (!isset($_SESSION["username"])) {
     echo "<p id='error_equal_pass'>You are not Log In !!!</p>";

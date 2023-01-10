@@ -1,4 +1,6 @@
-<?php require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
+<?php require($_SERVER['DOCUMENT_ROOT'].'/functions/init/var.php'); 
+      $var['page_title'] = "My articles";
+      require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
       require($_SERVER['DOCUMENT_ROOT'].'/functions/articles/my-articles-read.php'); ?>
 
 <h3 class="mib-3 title">My articles</h3>

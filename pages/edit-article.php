@@ -1,4 +1,6 @@
-<?php require($_SERVER['DOCUMENT_ROOT'].'/components/header.php'); 
+<?php require($_SERVER['DOCUMENT_ROOT'].'/functions/init/var.php'); 
+      $var['page_title'] = "Edit article";
+      require($_SERVER['DOCUMENT_ROOT'].'/components/header.php'); 
       require($_SERVER['DOCUMENT_ROOT'].'/functions/form-validation.php');
       require($_SERVER['DOCUMENT_ROOT'].'/functions/connection.php');
 

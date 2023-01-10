@@ -5,10 +5,14 @@ function checkEqualityPassword () {
 
     if (password !== confirm_password) {
         document.getElementById('error_equal_pass').innerHTML = 'Passwords must match !!!'; 
+    }
+}
 
-        let form = document.getElementById('form_register');
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-          });
+function showPassword() {
+    let password = document.getElementById('inputPassword1');
+    if (password.type === "password") {
+        password.type = "text";
+    } else {
+        password.type = "password";
     }
 }
