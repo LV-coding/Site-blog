@@ -18,10 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             unset($_SESSION['edit_id']);
 
-            header('location: ../pages/my-articles.php');
+            header('location: ../../pages/my-articles.php');
         }
     } else {
-        header('location: ../pages/my-articles.php');
+        header('location: ../../pages/my-articles.php');
     }
 } 
 

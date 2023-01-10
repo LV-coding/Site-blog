@@ -29,7 +29,7 @@ if (($_SERVER["REQUEST_METHOD"] == "GET") && isset($_GET['edit_id'])) {
 ?>
 
 <h3 class="mib-3 title">Update article</h3>
-<form action="../functions/edit-article-check.php" method="post">
+<form action="../functions/articles/edit-article-check.php" method="post">
 <div class="mb-3">
   <label for="titleInput1" class="form-label">Title</label>
   <input type="text" class="form-control" id="titleInput1" name="title" value="<?php echo $result['title']; ?>">
@@ -44,4 +44,4 @@ if (($_SERVER["REQUEST_METHOD"] == "GET") && isset($_GET['edit_id'])) {
 </div>
 
 </form>
-<?php require($_SERVER['DOCUMENT_ROOT'].'/components/footer.php') ?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'/components/footer.html') ?>

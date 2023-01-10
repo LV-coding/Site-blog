@@ -1,5 +1,5 @@
 <?php require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
-      require($_SERVER['DOCUMENT_ROOT'].'/functions/my-articles-read.php'); ?>
+      require($_SERVER['DOCUMENT_ROOT'].'/functions/articles/my-articles-read.php'); ?>
 
 <h3 class="mib-3 title">My articles</h3>
 <?php 
@@ -16,7 +16,7 @@ if ($articles) {
         </h5>
         <p class="container-element__date">{$article['datetime']}</p>
         <div class="container-element__link">
-            <a href='/functions/delete-article.php?delete_id={$article['id']}'>DELETE</a>
+            <a href='/functions/articles/delete-article.php?delete_id={$article['id']}'>DELETE</a>
             <a href='/pages/edit-article.php?edit_id={$article['id']}''>UPDATE</a>
         </div>
         <p class="container-element__text">{$article['text']}</p>
@@ -29,4 +29,4 @@ if ($articles) {
 } 
 
 
-require($_SERVER['DOCUMENT_ROOT'].'/components/footer.php') ?>
+require($_SERVER['DOCUMENT_ROOT'].'/components/footer.html') ?>

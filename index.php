@@ -1,5 +1,5 @@
 <?php require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
-      require($_SERVER['DOCUMENT_ROOT'].'/functions/articles-read.php');  ?>
+      require($_SERVER['DOCUMENT_ROOT'].'/functions/articles/articles-read.php');  ?>
 
 <h3 class="mib-3 title">Articles</h3>
 <?php 
@@ -25,4 +25,4 @@ if ($articles) {
     print '<p>No articles have been written yet !!!</p>';
 } 
 
-require($_SERVER['DOCUMENT_ROOT'].'/components/footer.php') ?>
+require($_SERVER['DOCUMENT_ROOT'].'/components/footer.html') ?>

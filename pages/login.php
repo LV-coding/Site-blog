@@ -26,4 +26,4 @@ if (isset($_SESSION["username"])) {
     unset($_SESSION["login_error"]);
 }
 
-require($_SERVER['DOCUMENT_ROOT'].'/components/footer.php') ?>
+require($_SERVER['DOCUMENT_ROOT'].'/components/footer.html') ?>

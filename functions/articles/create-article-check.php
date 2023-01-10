@@ -16,10 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $query = $connect->prepare('INSERT INTO blog.articles (title, text, author) VALUES (:title, :text, :author)');
             $query->execute(['title'=>$title, 'text'=>$text, 'author'=>$_SESSION['username']]);
 
-            header('location: ../pages/my-articles.php');
+            header('location: ../../pages/my-articles.php');
         }
     } else {
-        header('location: ../pages/create-article.php');
+        header('location: ../../pages/create-article.php');
     }
 }
 

@@ -2,4 +2,4 @@
 
 <p>Some text about this site...</p>
 
-<?php require($_SERVER['DOCUMENT_ROOT'].'/components/footer.php') ?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'/components/footer.html') ?>

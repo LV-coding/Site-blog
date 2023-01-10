@@ -7,7 +7,7 @@ if (!isset($_SESSION["username"])) {
 ?>
 
 <h3 class="mib-3 title">Create new article</h3>
-<form action="../functions/create-article-check.php" method="post">
+<form action="../functions/articles/create-article-check.php" method="post">
 <div class="mb-3">
   <label for="titleInput1" class="form-label">Title</label>
   <input type="text" class="form-control" id="titleInput1" name="title">
@@ -23,4 +23,4 @@ if (!isset($_SESSION["username"])) {
 
 </form>
 
-<?php require($_SERVER['DOCUMENT_ROOT'].'/components/footer.php') ?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'/components/footer.html') ?>
