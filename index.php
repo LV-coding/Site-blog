@@ -17,9 +17,10 @@ if ($articles) {
         <div class="container-element">
         <h5 class="container-element__title">{$article['title']}
         </h5>
-        <p class="container-element__author"> by {$article['author']}</p>
-        <p class="container-element__date">{$article['datetime']}</p>
-        <p class="container-element__text">{$article['text']}</p>
+        <div class="container-element__group">
+        <p class="container-element"> by {$article['author']}</p>
+        <p class="container-element">{$article['datetime']}</p>
+        </div>
         </div>
         html;
     }
