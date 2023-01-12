@@ -36,8 +36,10 @@
             <?php 
                 if (isset($_SESSION["username"])) {
                     echo <<<html
-                    <li><a class="dropdown-item" href="/pages/my-articles.php">My Articles</a></li>
-                    <li><a class="dropdown-item" href="/pages/create-article.php">Create Article</a></li>
+                    <li><a class="dropdown-item" href="/pages/my-articles.php">My articles</a></li>
+                    <li><a class="dropdown-item" href="/pages/create-article.php">Create article</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/pages/change-password.php">Change password</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="/pages/logout.php">Log Out</a></li>
                     html;

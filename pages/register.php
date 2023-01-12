@@ -21,6 +21,13 @@
                         echo $_SESSION["registration_error"];
                 }  ?>
         </p>
+        <p id="succes">
+        <?php
+            if (isset($_SESSION["registered"])) {
+                echo $_SESSION["registered"];
+            }
+        ?>
+        </p>
         </div>
         <input type="submit" class="btn btn-primary"  value="Register">
         </form>

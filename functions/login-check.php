@@ -16,16 +16,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $query->execute(['name'=>$name]);
         $saved_password = $query->fetch()[0];
 
-        if($saved_password) {
-            
-            if (password_verify($password, $saved_password)) {
-                $_SESSION["username"] = $name;
-                header('location: ../index.php');
-            } else {
-                $_SESSION["login_error"] = "Invalid User or password !!!"; 
-                header('location: ../pages/login.php');
-            }
+        if(! $saved_password) {
+            $_SESSION["login_error"] = "Invalid User or password !!!"; 
+            header('location: ../pages/login.php');
+        } 
 
+        if (password_verify($password, $saved_password)) {
+            $_SESSION["username"] = $name;
+            header('location: ../pages/my-articles.php');
         } else {
             $_SESSION["login_error"] = "Invalid User or password !!!"; 
             header('location: ../pages/login.php');

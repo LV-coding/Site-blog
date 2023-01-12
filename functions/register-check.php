@@ -13,30 +13,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
     if ( $name && $password && $confirm_password ) {
 
-        if ($password === $confirm_password) {
-
-            $query = $connect->prepare('SELECT name FROM blog.users WHERE name=:name');
-            $query->execute(['name'=>$name]);
-            $user = $query->fetchAll();
-
-            if(count($user) == 0) {
-                $create_user = $connect->prepare('INSERT INTO blog.users (name, password) VALUES (:name, :password)');
-                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                $create_user->execute(['name'=>$name, 'password'=>$hashed_password]);
-
-                $_SESSION["username"] = $name;
-
-                header('location: ../index.php');
-
-            } else {
-                $_SESSION["registration_error"] = "A user with that name already exists !!!";
-                header('location: ../pages/register.php');
-            }
-
-        } else {
+        if ($password !== $confirm_password) {
             $_SESSION["registration_error"] = "Passwords must match !!!";
             header('location: ../pages/register.php');
         }
+
+        $query = $connect->prepare('SELECT name FROM blog.users WHERE name=:name');
+        $query->execute(['name'=>$name]);
+        $user = $query->fetchAll();
+
+        if(count($user) != 0) {
+            $_SESSION["registration_error"] = "A user with that name already exists !!!";
+            header('location: ../pages/register.php');
+        } 
+
+        $create_user = $connect->prepare('INSERT INTO blog.users (name, password) VALUES (:name, :password)');
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $create_user->execute(['name'=>$name, 'password'=>$hashed_password]);
+
+        $_SESSION["username"] = $name;
+
+        $_SESSION["registered"] = "Registered";
+        header('location: ../pages/register.php');
+
     } else {
         $_SESSION["registration_error"] = "No valid value !!!";
         header('location: ../pages/register.php');
