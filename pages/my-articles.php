@@ -1,21 +1,22 @@
 <?php require($_SERVER['DOCUMENT_ROOT'].'/functions/init/var.php'); 
       $var['page_title'] = "My articles";
       require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
-      require($_SERVER['DOCUMENT_ROOT'].'/functions/articles/my-articles-read.php'); ?>
+      require($_SERVER['DOCUMENT_ROOT'].'/models/model-article.php'); ?>
 
 <h3 class="mib-3 title">My articles</h3>
 <?php 
-$articles = show_user_articles();
+$model = new Article;
+$articles = $model->select_articles(where:"author='{$_SESSION['username']}'");
 
 if ($articles) {
     echo "<div class='container-articles'>";
     foreach($articles as $article) {
-        #print json_encode($article);
-        #echo "{$article['id']}";
         echo <<<html
         <div class="container-element">
+        <a href="/pages/article.php?show_id={$article['id']}">
         <h5 class="container-element__title">{$article['title']}
         </h5>
+        </a>
 
         <div class="container-element__group">
         <div class="container-element__link">

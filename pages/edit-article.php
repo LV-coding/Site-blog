@@ -8,24 +8,25 @@
 if (($_SERVER["REQUEST_METHOD"] == "GET") && isset($_GET['edit_id'])) {
 
     $edit_id = validate_form($_GET['edit_id']);
+    $edit_id = validate_int($edit_id);
 
-    if ($edit_id) {
-        global $connect;
-
-        $check_author = $connect->prepare("SELECT id, title, text FROM blog.articles WHERE author='{$_SESSION['username']}' and id=:edit_id ");
-        $check_author->execute(['edit_id'=>$edit_id]);
-        if ($check_author) {
-            $result = $check_author->fetch(PDO::FETCH_ASSOC);
-            $_SESSION['edit_id'] = $result['id'];
-        } else {
-            header('location: index.php');
-        }
-        
-
-    } else {
-        $result = ['title'=>'', 'text'=>''];
+    if (!$edit_id) {
+        header('location: ../error/404.php');
+        die(); 
     }
 
+    global $connect;
+
+    $check_author = $connect->prepare("SELECT id, title, text FROM blog.articles WHERE author='{$_SESSION['username']}' and id=:edit_id ");
+    $check_author->execute(['edit_id'=>$edit_id]);
+    $result = $check_author->fetch(PDO::FETCH_ASSOC);
+
+    if (!$result) {
+        header('location: ../error/403.php');
+        die(); 
+    }
+
+    $_SESSION['edit_id'] = $result['id'];
 }
 
 ?>
@@ -46,4 +47,4 @@ if (($_SERVER["REQUEST_METHOD"] == "GET") && isset($_GET['edit_id'])) {
 </div>
 
 </form>
-<?php require($_SERVER['DOCUMENT_ROOT'].'/components/footer.html') ?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'/components/footer.html'); ?>

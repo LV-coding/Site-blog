@@ -1,6 +1,6 @@
 <?php 
 require($_SERVER['DOCUMENT_ROOT'].'/functions/form-validation.php');
-require($_SERVER['DOCUMENT_ROOT'].'/functions/connection.php');
+require($_SERVER['DOCUMENT_ROOT'].'/models/model-article.php');
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -13,13 +13,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
         if ($title && $text) {
-            $query = $connect->prepare('INSERT INTO blog.articles (title, text, author) VALUES (:title, :text, :author)');
-            $query->execute(['title'=>$title, 'text'=>$text, 'author'=>$_SESSION['username']]);
+            
+            $model = new Article;
+            $article = $model->create_article($title, $text, $_SESSION['username']);
 
             header('location: ../../pages/my-articles.php');
+            die(); 
         }
     } else {
         header('location: ../../pages/create-article.php');
+        die(); 
     }
 }
 

@@ -5,6 +5,15 @@
     
 }
 
+a {
+    text-decoration:none;
+}
+
+a>* {
+    color: black;
+}
+
+
 .container-main {
     margin-top: 5vh;
     padding: 20px;
@@ -34,9 +43,7 @@
     padding: 10px;
     border-radius: 15px;
     background-color:rgb(246, 255, 255);
-    max-height: 250px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
     &__group {
         display: flex;
         justify-content: space-between;
@@ -61,3 +68,18 @@
     }
 }
 
+#error_status_code_img {
+    width:400px;
+    margin-left:auto; 
+    margin-right:auto; 
+    display: block;
+}
+
+#error_status_code_text {
+    text-align: center;
+    font-size: 72px;
+    width:500px;
+    margin-left:auto; 
+    margin-right:auto; 
+    display: block;
+}

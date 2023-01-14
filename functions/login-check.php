@@ -1,7 +1,7 @@
 <?php 
 require($_SERVER['DOCUMENT_ROOT'].'/functions/form-validation.php');
 require($_SERVER['DOCUMENT_ROOT'].'/functions/connection.php');
-
+require($_SERVER['DOCUMENT_ROOT'].'/models/model-user.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
@@ -12,26 +12,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
     if ( $name && $password ) {
 
-        $query = $connect->prepare('SELECT password FROM blog.users WHERE name=:name');
-        $query->execute(['name'=>$name]);
-        $saved_password = $query->fetch()[0];
+        $model = new User;
+        $saved_password = $model->select_password($name);
 
-        if(! $saved_password) {
+        if(!$saved_password) {
             $_SESSION["login_error"] = "Invalid User or password !!!"; 
             header('location: ../pages/login.php');
+            die(); 
         } 
 
         if (password_verify($password, $saved_password)) {
             $_SESSION["username"] = $name;
             header('location: ../pages/my-articles.php');
+            die(); 
         } else {
             $_SESSION["login_error"] = "Invalid User or password !!!"; 
             header('location: ../pages/login.php');
+            die(); 
         }
 
     } else {
         $_SESSION["login_error"] = "No valid value !!!";
         header('location: ../pages/login.php');
+        die(); 
     }
 } 
 

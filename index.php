@@ -2,11 +2,12 @@
       $var['page_title'] = "Blogs";
 
       require($_SERVER['DOCUMENT_ROOT'].'/components/header.php');
-      require($_SERVER['DOCUMENT_ROOT'].'/functions/articles/articles-read.php'); ?>
+      require($_SERVER['DOCUMENT_ROOT'].'/models/model-article.php'); ?>
 
 <h3 class="mib-3 title">Articles</h3>
 <?php 
-$articles = show_all_articles();
+$model = new Article;
+$articles = $model->select_articles();
 
 if ($articles) {
     echo "<div class='container-articles'>";
@@ -15,8 +16,9 @@ if ($articles) {
         #echo "{$article['id']}";
         echo <<<html
         <div class="container-element">
+        <a href="/pages/article.php?show_id={$article['id']}">
         <h5 class="container-element__title">{$article['title']}
-        </h5>
+        </h5></a>
         <div class="container-element__group">
         <p class="container-element"> by {$article['author']}</p>
         <p class="container-element">{$article['datetime']}</p>
